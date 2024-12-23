@@ -19,6 +19,7 @@
 #
 # @see: http://secrets.blacktree.com/?showapp=com.apple.finder
 # @see: https://github.com/herrbischoff/awesome-macos-command-line
+# @see: https://www.hexnode.com/mobile-device-management/help/script-to-customize-finder-preferences-on-mac/ 
 #
 # @author Jeff Geerling
 # @author Stephan Hadan
@@ -205,10 +206,12 @@ defaults write com.apple.dock wvous-bl-corner -int 4
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # Add application folder to Dock and change icon of downloads folder to folder icon
-dockutil -r "Programme"
-dockutil -r "Downloads"
-dockutil -a "file:///Applications/" -s others --display folder -l "Programme" -p 1 --sort name
-dockutil -a "file:///Users/stephan.hadan/Downloads/" -s others --display folder -l "Downloads" -p 2
+/usr/local/bin/dockutil -r "Home"
+/usr/local/bin/dockutil -r "Programme"
+/usr/local/bin/dockutil -r "Downloads"
+/usr/local/bin/dockutil -a "file:///Users/stephan.hadan/" -s others --display folder -l "Home" -p 1 --sort name
+/usr/local/bin/dockutil -a "file:///Applications/" -s others --display folder -l "Programme" -p 2 --sort name
+/usr/local/bin/dockutil -a "file:///Users/stephan.hadan/Downloads/" -s others --display folder -l "Downloads" -p 3
 
 ###############################################################################
 # Safari & WebKit                                                             #
