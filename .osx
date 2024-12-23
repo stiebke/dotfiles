@@ -203,6 +203,12 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 defaults write com.apple.dock wvous-bl-corner -int 4
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
+# Add application folder to Dock and change icon of downloads folder to folder icon
+dockutil -r "Programme"
+dockutil -r "Downloads"
+dockutil -a "file:///Applications/" -s others --display folder -l "Programme" -p 1 --sort name
+dockutil -a "file:///Users/stephan.hadan/Downloads/" -s others --display folder -l "Downloads" -p 2
+
 ###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
